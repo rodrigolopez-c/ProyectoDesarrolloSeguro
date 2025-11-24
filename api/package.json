@@ -1,18 +1,26 @@
 {
   "name": "sql-injection-detector-api",
   "version": "1.0.0",
-  "description": "API REST para búsqueda de productos con SQLite",
-  "main": "server-sqlite.js",
+  "description": "API REST CRUD con SQLite - Sistema de detección de SQL Injection",
+  "main": "server-crud.js",
   "scripts": {
     "start": "node server-sqlite.js",
-    "populate": "node populate-db.js"
+    "start:simple": "node server-sqlite.js",
+    "populate": "node populate-db.js",
+    "lint": "eslint .",
+    "lint:security": "eslint --plugin security .",
+    "test:security": "bash run-security-tests.sh"
   },
-  "keywords": ["express", "sqlite", "api"],
+  "keywords": ["express", "sqlite", "api", "security", "sql-injection"],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
     "sqlite3": "^5.1.6",
     "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-plugin-security": "^3.0.1"
   }
 }

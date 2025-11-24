@@ -1,18 +1,28 @@
+# Dependencias
 node_modules/
 
+# Base de datos (generada)
 *.db
 products.db
 
+# Logs (generados)
 *.log
 queries.log
 alerts.log
 
+# Resultados de pruebas (generados)
+sast-results.json
+sast-results.txt
+dast-results.json
+dast-results.txt
+
+# Variables de entorno (si se usa)
 .env
 
+# Sistema operativo
 .DS_Store
 Thumbs.db
 
-.vscode/
-.idea/
-*.swp
-*.swo
+# Python
+__pycache__/
+*.pyc
