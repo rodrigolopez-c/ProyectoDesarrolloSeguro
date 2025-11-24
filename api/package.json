@@ -1,0 +1,18 @@
+{
+  "name": "sql-injection-detector-api",
+  "version": "1.0.0",
+  "description": "API REST para búsqueda de productos con SQLite",
+  "main": "server-sqlite.js",
+  "scripts": {
+    "start": "node server-sqlite.js",
+    "populate": "node populate-db.js"
+  },
+  "keywords": ["express", "sqlite", "api"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.6",
+    "dotenv": "^16.3.1"
+  }
+}
