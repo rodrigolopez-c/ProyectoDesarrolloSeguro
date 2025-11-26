@@ -1,0 +1,41 @@
+name: Security-CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run dependency vulnerability check
+        run: npm audit --audit-level=high
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt || true
+
+      - name: Run custom SQL Injection detector
+        run: python detect-sqli.py
+
+      - name: Run ESLint (opcional)
+        run: |
+          if [ -f .eslintrc.js ]; then npm run lint; else echo "No lint config"; fi
