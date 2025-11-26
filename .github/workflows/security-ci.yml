@@ -39,7 +39,7 @@ jobs:
 
       # ✔ FIX: Run SQLI detector from repo root
       - name: Run custom SQL Injection detector
-        run: python ./detect-sqli.py
+        run: python $(find . -name "detect-sqli.py")
 
       # Optional ESLint
       - name: Run ESLint (optional)

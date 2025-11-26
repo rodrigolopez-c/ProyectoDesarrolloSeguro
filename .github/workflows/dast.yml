@@ -42,4 +42,5 @@ jobs:
 
       # ✔ FIX: Run DAST script from repo root
       - name: Run DAST tests
-        run: python ./test-dast.py
+        run: python $(find . -name "test-dast.py")
+
