@@ -14,6 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Install Node dependencies inside /api
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -21,12 +22,16 @@ jobs:
 
       - name: Install Node dependencies
         run: npm install
+        working-directory: ./api
 
+      # Start server from /api
       - name: Start Server
         run: |
           node server-sqlite.js &
           sleep 5
+        working-directory: ./api
 
+      # Python environment
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
@@ -35,5 +40,7 @@ jobs:
       - name: Install Python deps
         run: pip install requests
 
+      # ✔ FIX: Run DAST script from repo root
       - name: Run DAST tests
-        run: python test-dast.py
+        run: python $(find . -name "test-dast.py")
+
