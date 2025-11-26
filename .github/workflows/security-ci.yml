@@ -14,6 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Install Node dependencies inside /api
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -21,10 +22,13 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: ./api
 
       - name: Run dependency vulnerability check
         run: npm audit --audit-level=high
+        working-directory: ./api
 
+      # Python environment
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -33,9 +37,12 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements.txt || true
 
+      # Custom SQL Injection scanner
       - name: Run custom SQL Injection detector
         run: python detect-sqli.py
 
-      - name: Run ESLint (opcional)
+      # Optional ESLint
+      - name: Run ESLint (optional)
         run: |
-          if [ -f .eslintrc.js ]; then npm run lint; else echo "No lint config"; fi
+          if [ -f ./api/.eslintrc.js ]; then npm run lint; else echo "No lint config"; fi
+        working-directory: ./api
