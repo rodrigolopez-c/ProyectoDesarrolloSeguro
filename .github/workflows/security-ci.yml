@@ -37,9 +37,9 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements.txt || true
 
-      # Custom SQL Injection scanner
+      # ✔ FIX: Run SQLI detector from repo root
       - name: Run custom SQL Injection detector
-        run: python detect-sqli.py
+        run: python ./detect-sqli.py
 
       # Optional ESLint
       - name: Run ESLint (optional)

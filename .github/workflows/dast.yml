@@ -40,6 +40,6 @@ jobs:
       - name: Install Python deps
         run: pip install requests
 
-      # Run DAST tests
+      # ✔ FIX: Run DAST script from repo root
       - name: Run DAST tests
-        run: python test-dast.py
+        run: python ./test-dast.py
