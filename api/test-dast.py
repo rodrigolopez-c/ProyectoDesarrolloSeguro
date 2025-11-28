@@ -37,6 +37,7 @@ def print_vulnerable(text):
 BASE_URL = "http://localhost:3000"
 results = []
 
+# Verificar servidor
 def check_server():
     """Verifica si el servidor está corriendo"""
     print_test("0", "Verificando servidor...")
@@ -54,6 +55,7 @@ def check_server():
         print_error(f"Error al conectar: {e}")
         return False
 
+# Busqueda normal
 def test_normal_search():
     """Test 1: Búsqueda normal (baseline)"""
     print_test("1", "Búsqueda normal (baseline)")
@@ -76,6 +78,7 @@ def test_normal_search():
     
     return count
 
+# Bypass
 def test_sqli_bypass():
     """Test 2: SQL Injection - Bypass con OR 1=1"""
     print_test("2", "SQL Injection - Bypass (OR 1=1)")
@@ -112,6 +115,7 @@ def test_sqli_bypass():
         print_error(f"Error: {e}")
         return False
 
+# Injection con comentario
 def test_sqli_comment():
     """Test 3: SQL Injection - Comentario SQL"""
     print_test("3", "SQL Injection - Comentario (--)")
@@ -145,6 +149,7 @@ def test_sqli_comment():
         print_error(f"Error: {e}")
         return False
 
+# Union atack
 def test_sqli_union():
     """Test 4: SQL Injection - UNION attack"""
     print_test("4", "SQL Injection - UNION attack")
@@ -181,6 +186,7 @@ def test_sqli_union():
         print_error(f"Error: {e}")
         return False
 
+#Injection con parametro en ruta
 def test_sqli_parameter_id():
     """Test 5: SQL Injection en parámetro ID"""
     print_test("5", "SQL Injection en parámetro :id")
@@ -214,6 +220,7 @@ def test_sqli_parameter_id():
         print_error(f"Error: {e}")
         return False
 
+# SQL injection en post
 def test_sqli_post():
     """Test 6: SQL Injection en POST (CREATE)"""
     print_test("6", "SQL Injection en POST request")
@@ -252,6 +259,7 @@ def test_sqli_post():
         print_error(f"Error: {e}")
         return False
 
+#Information disclosure
 def test_information_disclosure():
     """Test 7: Information Disclosure"""
     print_test("7", "Information Disclosure (Exposición de errores)")
@@ -401,3 +409,5 @@ if __name__ == '__main__':
         print(f"\n\n{Colors.YELLOW}Análisis interrumpido por el usuario{Colors.END}")
     except Exception as e:
         print(f"\n{Colors.RED}Error fatal: {e}{Colors.END}")
+
+        #Para github actions

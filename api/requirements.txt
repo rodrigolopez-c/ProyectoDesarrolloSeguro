@@ -1,11 +1,5 @@
-# Herramientas de seguridad para análisis SAST/DAST
-# Instalar con: pip install -r requirements.txt
-
-# SAST (Static Application Security Testing)
 semgrep>=1.45.0
 
-# DAST (Dynamic Application Security Testing)  
 sqlmap>=1.7.0
 
-# Opcional - Análisis adicional de Node.js (última versión disponible)
 nodejsscan>=3.7

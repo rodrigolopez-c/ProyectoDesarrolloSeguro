@@ -104,10 +104,7 @@ echo ========================================
 echo ANALISIS COMPLETADO EXITOSAMENTE
 echo ========================================
 echo.
-echo Resultados:
-echo   - SAST: 19 vulnerabilidades en codigo
-echo   - DAST: 3+ vulnerabilidades confirmadas
-echo   - Logs: queries.log
+
 echo.
 echo Para ver detalles:
 echo   type sast-results.txt
